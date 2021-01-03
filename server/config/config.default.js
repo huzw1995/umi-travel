@@ -23,18 +23,6 @@ module.exports = appInfo => {
     type: 'all'
   };
 
-  config.allowHosts = ['localhost:8000', '127.0.0.1:8000'];
-
-  config.interfaceLimit = {
-    maxCount: 3, // 最多请求个数
-    time: 3 * 1000, // 间隔时间
-  };
-
-  config.interfaceCache = {
-    expire: 10,
-    include: ['/api/user/detail']
-  };
-
   config.security = {
     csrf: {
       enable: false,
@@ -63,12 +51,12 @@ module.exports = appInfo => {
   config.session = {
     key: "MUKE_SESS",
     httpOnly: true,
-    maxAge: 1000 * 5,
+    maxAge: 1000 * 50,
     renew: true
   };
 
   config.auth = {
-    exclude: ['/api/user/login', '/api/user/register']
+    exclude: ['/home', '/user', '/login', '/logout']
   };
 
   config.mysql = {
@@ -78,7 +66,6 @@ module.exports = appInfo => {
       host: '127.0.0.1',
       port: '3306',
       user: 'root',
-      password: 'abc123456',
       database: 'egg'
     }
   };
@@ -88,32 +75,16 @@ module.exports = appInfo => {
     host: '127.0.0.1',
     port: '3306',
     user: 'root',
-    password: 'abc123456',
-    database: 'egg_house',
+    database: 'egg',
     define: {
       timestamps: false,
       freezeTableName: true
     }
   };
 
-  config.jwt = {
-    secret: 'muke'
-  };
-
-  config.redis = {
-    client: {
-      port: 6379,
-      host: '127.0.0.1',
-      password: 'abc123456',
-      db: 0
-    }
-  };
-
   // add your user config here
   const userConfig = {
     // myAppName: 'egg',
-    salt: 'muke',
-    redisExpire: 60 * 60 * 24
   };
 
   return {
