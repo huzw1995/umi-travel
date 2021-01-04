@@ -2,7 +2,7 @@
 -- drop database egg;
 
 -- 创建数据库
--- create database egg;
+create database egg;
 
 -- 创建表
 use egg;

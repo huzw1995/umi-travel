@@ -1,2 +1,3 @@
 2021-01-03 17:37:28 [httpLog] {"method":"GET","url":"/","data":{},"startTime":"2021-01-03 17:37:28","endTime":"2021-01-03 17:37:28","timeLength":5}
 2021-01-03 17:38:01 [httpLog] {"method":"GET","url":"/user/lists","data":{},"startTime":"2021-01-03 17:38:01","endTime":"2021-01-03 17:38:01","timeLength":12}
+2021-01-04 11:03:09 [httpLog] {"method":"GET","url":"/","data":{},"startTime":"2021-01-04 11:03:09","endTime":"2021-01-04 11:03:09","timeLength":9}
