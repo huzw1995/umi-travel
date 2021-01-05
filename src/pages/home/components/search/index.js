@@ -1,14 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { Picker, List, Calendar, Button } from 'antd-mobile';
+import { Picker, List, Calendar, Button, Toast } from 'antd-mobile';
 import dayjs from 'dayjs';
+import useHttpHook from '@/hooks/useHttpHook'
+import { history } from 'umi'
 
 export default function (props) {
-  const [citys, setCities] = useState([
-    [
-      { label: '杭州', value: '10001' },
-      { label: '苏州', value: '10002' },
-    ],
-  ]);
   const [selectedCity, setSelectedCity] = useState(['10001']);
   const [times, setTimes] = useState('可选时间');
   const [dateShow, setDateShow] = useState(false);
@@ -27,27 +23,40 @@ export default function (props) {
         dayjs(endTime).format('YYYY-MM-DD'),
     );
   };
-  useEffect(() => {}, []);
+  const handleClick = () => {
+    if(times.includes('~')){
+      history.push({
+        pathname:'/search',
+        query:{
+          code:selectedCity,
+          startTime:times.split('~')[0],
+          endTime:times.split('~')[1]
+        }
+      })
+    }else{
+      Toast.fail('请选择时间');
+    }
+  }
 
   return (
     <div className="search">
       <div className="search-addr">
-        <Picker
+        {!props.citysLoading && Array.isArray(props.citys.data) && <Picker
           title="城市"
-          data={citys}
+          data={props.citys.data}
           value={selectedCity}
           cascade={false}
           cols={1}
           onChange={handleCityChange}
         >
           <List.Item>可选城市</List.Item>
-        </Picker>
+        </Picker>}
       </div>
       <div className="search-time" onClick={handleDate}>
         <p className="search-time_left">出租时间</p>
         <p className="search-time_right">{times}</p>
       </div>
-      <Button type="warning" size="large">
+      <Button type="warning" size="large" onClick={handleClick}>
         搜索民宿
       </Button>
       <Calendar
