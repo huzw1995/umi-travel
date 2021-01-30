@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react'
-import{ SearchBar } from 'antd-mobile'
+import{ SearchBar, ActivityIndicator } from 'antd-mobile'
+import useHttpHook from '@/hooks/useHttpHook'
+
 import './index.less'
 
 export default function(props){
@@ -17,8 +19,13 @@ export default function(props){
 
     };
 
-    useEffect(()=>{
+    const [houses, loading] = useHttpHook({
+        url: '/house/search',
+        body: {}
+    });
 
+    useEffect(()=>{
+        console.log(loading)
     },[])
 
     return (
@@ -32,6 +39,20 @@ export default function(props){
                 onSubmit={handleSubmit}
             />
             {/** 搜索结果 */}
+            {loading ? <ActivityIndicator toast/> : <div className='result'>
+                    {
+                        houses.data.map(item => (
+                            <div className='item' key={item.id}>
+                                <img alt='img' src={item.img}/>
+                                <div className='item-right'>
+                                    <div className='title'>{item.title}</div>
+                                    <div className='price'>{item.price}</div>
+                                </div>
+                            </div>
+                        ))
+                    }
+                </div>
+            }
         </div>
     )
 }
