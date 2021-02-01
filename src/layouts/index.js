@@ -1,5 +1,4 @@
-import ErrorBoundary from '@/components/ErrorBoundary';
-import MenuBar from '@/components/MenuBar'
+import { ErrorBoundary,MenuBar } from '@/components'
 import {useLocation} from 'umi'
 
 function BasicLayout(props) {

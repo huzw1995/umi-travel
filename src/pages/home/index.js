@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Header from './components/header';
 import Search from './components/search';
 import Hot from './components/hot';
-import useHttpHook from '@/hooks/useHttpHook'
+import { useHttpHook } from '@/hooks'
 
 import './index.less';
 

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Button } from 'antd-mobile';
-import Modal from '@/components/Modal';
+import { Modal } from '@/components';
 
 export default class Index extends Component {
 

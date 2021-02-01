@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import Search from './serach'
 import SearchContext from './searchContext'
 import { getLists } from '@/services/search'
-import LazyLoad from '@/components/LazyLoad'
+import { LazyLoad } from '@/components'
 import Consumer from './consumer'
 
 export default class Index extends Component {

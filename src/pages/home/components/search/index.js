@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Picker, List, Calendar, Button, Toast } from 'antd-mobile';
 import dayjs from 'dayjs';
-import useHttpHook from '@/hooks/useHttpHook'
+import { useHttpHook }from '@/hooks'
 import { history } from 'umi'
 
 export default function (props) {
