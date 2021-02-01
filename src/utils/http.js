@@ -31,10 +31,11 @@ export default function Http({
                 ...defaultHeader,
                 headers
             },
-            body:JSON.stringify(body)
+            data:body
         }
     }
     return new Promise((resolve,reject)=>{
+        console.log('params',params)
         axios(params).then(function(response){
             let { status,data } = response
             if(response){

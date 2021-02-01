@@ -5,11 +5,12 @@ export default function useHttpHook({
     url,
     method = 'post',
     headers,
-    body = {}
+    body = {},
+    watch = []
 }){
     const [result,setResult] = useState();
     const [loading,setLoading] = useState(true);
-
+    console.log('watch',watch)
     useEffect(()=>{
         Http({
             url,
@@ -19,7 +20,7 @@ export default function useHttpHook({
             setResult,
             setLoading
         })
-    },[])
+    },watch)
 
     return [result, loading];
 }
