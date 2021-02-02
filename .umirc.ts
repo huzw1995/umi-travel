@@ -28,6 +28,11 @@ export default defineConfig({
           path:'/search',
           component:'./search/index',
           title:'搜索'
+        },
+        {
+          path:'/house',
+          component:'./house/index',
+          title:'房屋详情'
         }
       ]
     }

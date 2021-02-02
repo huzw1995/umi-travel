@@ -23,6 +23,7 @@
     "@ant-design/pro-layout": "^6.5.0",
     "@umijs/preset-react": "1.x",
     "axios": "^0.21.1",
+    "react-awesome-swiper": "^1.4.16",
     "react-icons": "^4.1.0",
     "umi": "^3.3.3"
   },
