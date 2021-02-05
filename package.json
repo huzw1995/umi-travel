@@ -25,6 +25,7 @@
     "axios": "^0.21.1",
     "react-awesome-swiper": "^1.4.16",
     "react-icons": "^4.1.0",
+    "think-react-store": "^1.6.71",
     "umi": "^3.3.3"
   },
   "devDependencies": {

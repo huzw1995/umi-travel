@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import Http from '@/utils/http'
+import { Http } from '@/utils'
 
 export default function useHttpHook({
     url,

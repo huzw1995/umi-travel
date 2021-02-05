@@ -1,28 +1,27 @@
+import { ShowLoading } from '@/components'
 import React, { useState, useEffect } from 'react'
+import { timer } from '@/utils'
 
 export default function(props){
-    const [state,setState] = useState()
-
-    useEffect(() => {
-
-    },[])
-
     return (
         <div className="comment">
             <h1 className="comment-title">评论</h1>
             <div className="comment-lists">
-                <div className="comment-lists_item">
-                    <img alt="user" className="avatar" src={"http://img3.mukewang.com/szimg/5d1032ab08719e0906000338-360-202.jpg"}/>
-                    <div className="right">
-                        <div className="right-top">
-                            <p>{'user'}</p>
-                            <p>{'time'}</p>
-                        </div>
-                        <div className="right-bottom">
-                            {'info'}
+                {props?.lists?.map((item,index)=>(
+                    <div className="comment-lists_item" key={index}>
+                        <img alt="user" className="avatar" src={item?.avatar}/>
+                        <div className="right">
+                            <div className="right-top">
+                                <p>{item?.username}</p>
+                                <p>{timer(item?.createTime)}</p>
+                            </div>
+                            <div className="right-bottom">
+                                {item?.info}
+                            </div>
                         </div>
                     </div>
-                </div>
+                ))}
+                <ShowLoading showLoading={props?.showLoading}/>
             </div>
         </div>
     )
