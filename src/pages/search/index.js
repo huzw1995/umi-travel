@@ -65,7 +65,7 @@ export default function(props){
                 pageNum:page.pageNum + 1
             })
         }
-    },[houses])
+    },[houses,houseLists])
 
     useEffect(()=>{
         if(!loading && houses.data){
