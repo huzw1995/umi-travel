@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, memo } from 'react';
 import { Link } from 'umi';
-export default function (props) {
+function Header(props) {
   const [state, setState] = useState();
-
+  console.log('header render')
   useEffect(() => {}, []);
 
   return (
@@ -14,3 +14,5 @@ export default function (props) {
     </div>
   );
 }
+
+export default memo(Header)

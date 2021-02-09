@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { ActivityIndicator } from 'antd-mobile'
 import OrderItem from '../Item'
 import { ShowLoading } from '@/components'
+import { OrderSkeletons } from '@/skeletons'
 export default function(props){
 
     useEffect(()=>{
@@ -17,7 +18,7 @@ export default function(props){
                     ))}
                     <ShowLoading showLoading={props.showLoading}/>
                 </div> :
-                <ActivityIndicator toast/> 
+                <OrderSkeletons/> 
             }
         </div>
     )
